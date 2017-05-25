@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d2ec5636ba21e8b0757b4560cada4db48efdd247">
+        <dex dex="/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_b10d67ffd261ffad0df6daa83014c93140933ccb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
+        <dex dex="/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_6a8c184b4696ca6b8816990942343e66155ac033/classes.dex" />
+    </item>
+
+</items>

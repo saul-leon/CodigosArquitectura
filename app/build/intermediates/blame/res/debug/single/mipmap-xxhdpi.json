@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/ic_launcher.png",
+        "source": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/ic_launcher_round.png",
+        "source": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
+    }
+]
