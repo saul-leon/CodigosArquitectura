@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:2:1-23:12
+ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:2:1-28:12
 	package
 		ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:3:5-45
 		INJECTED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml
@@ -14,11 +14,15 @@ ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/m
 		INJECTED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml
 		INJECTED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml
 uses-permission#android.permission.INTERNET
-ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:4:5-67
+ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:5:5-67
 	android:name
-		ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:4:22-64
+		ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:5:22-64
+uses-permission#android.permission.KILL_BACKGROUND_PROCESSES
+ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:6:5-84
+	android:name
+		ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:6:22-81
 application
-ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:6:5-21:19
+ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:8:5-26:19
 MERGED from [com.android.support:appcompat-v7:25.3.1] /home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-v4:25.3.1] /home/omar/.android/build-cache/584023e4bac5d314fb151123a98a639a6cd642eb/output/AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-fragment:25.3.1] /home/omar/.android/build-cache/21a16a708b447b50ce84d4c956d7a14ac7b729d1/output/AndroidManifest.xml:29:5-20
@@ -30,35 +34,39 @@ MERGED from [com.android.support:support-vector-drawable:25.3.1] /home/omar/.and
 MERGED from [com.android.support:support-compat:25.3.1] /home/omar/.android/build-cache/12583a8ae68c74aa0e2e5abb4ab6aca77ad83d54/output/AndroidManifest.xml:29:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/omar/.android/build-cache/4d470983b92c4c061e3b18cfc658108ee6c87c89/output/AndroidManifest.xml:9:5-20
 	android:label
-		ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:9:9-41
+		ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:11:9-41
 	android:supportsRtl
-		ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:11:9-35
+		ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:13:9-35
 	android:roundIcon
-		ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:10:9-54
+		ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:12:9-54
 	android:allowBackup
-		ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:7:9-35
+		ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:9:9-35
 	android:icon
-		ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:8:9-43
+		ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:10:9-42
 	android:theme
-		ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:12:9-40
+		ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:14:9-40
 activity#fuzzer.com.codigosarquitectura.MainActivity
-ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:13:9-19:20
+ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:15:9-21:20
 	android:name
-		ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:13:19-47
+		ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:15:19-47
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:14:13-18:29
+ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:16:13-20:29
 action#android.intent.action.MAIN
-ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:15:17-69
+ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:17:17-69
 	android:name
-		ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:15:25-66
+		ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:17:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:17:17-77
+ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:19:17-77
 	android:name
-		ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:17:27-74
+		ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:19:27-74
 service#fuzzer.com.codigosarquitectura.CBWatcherService
-ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:20:9-52
+ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:23:9-53
 	android:name
-		ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:20:18-50
+		ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:23:18-50
+activity#fuzzer.com.codigosarquitectura.ListaCodigos
+ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:25:9-59
+	android:name
+		ADDED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml:25:19-47
 uses-sdk
 INJECTED from /home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:25.3.1] /home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/AndroidManifest.xml:21:5-23:78

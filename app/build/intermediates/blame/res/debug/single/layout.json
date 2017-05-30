@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/layout/activity_lista_codigos.xml",
+        "source": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/res/layout/activity_lista_codigos.xml"
+    },
+    {
         "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/layout/abc_dialog_title_material.xml",
         "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/layout/abc_dialog_title_material.xml"
     },
@@ -46,6 +50,10 @@
     {
         "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/layout/abc_expanded_menu_layout.xml",
         "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/layout/abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/layout/elemento_lista.xml",
+        "source": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/src/main/res/layout/elemento_lista.xml"
     },
     {
         "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/layout/notification_template_part_time.xml",

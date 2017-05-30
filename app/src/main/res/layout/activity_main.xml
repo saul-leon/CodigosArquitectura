@@ -8,20 +8,15 @@
     tools:context="fuzzer.com.codigosarquitectura.MainActivity">
 
 
-    <Button
-        android:id="@+id/btnIniciarEscucha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Stop"
-        android:onClick="start"/>
 
 
-    <Button
-        android:id="@+id/btnPararEscucha"
+    <Switch
+        android:id="@+id/activarGuardia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Start"
-        android:onClick="stop"/>
+        android:text="Activar guardia" />
+
+
 
 
 </LinearLayout>
