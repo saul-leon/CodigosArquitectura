@@ -51,20 +51,16 @@ public class CBWatcherService extends Service {
         Pusher pusher = new Pusher("3c9aa0e2bcc0ff7d6926");
 
         Channel channel = pusher.subscribe("enviar");
-
         channel.bind("enviar-event", new SubscriptionEventListener() {
             @Override
             public void onEvent(String channelName, String eventName, final String data) {
                 Log.e("pusher", data);
                 //recibe la respuesta y se va a la otra pantalla que muestra la lista de codigos
-
                 Log.e("->", "manda a llamar a la otra activity");
                 Intent intent = new Intent(context, ListaCodigos.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("data", data);
                 startActivity(intent);
-
-
             }
         });
 

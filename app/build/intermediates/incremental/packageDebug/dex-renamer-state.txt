@@ -1,7 +1,4 @@
-#Tue May 30 18:25:37 CDT 2017
-base.0=/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_6a8c184b4696ca6b8816990942343e66155ac033
-renamed.1=classes.dex
-renamed.0=classes2.dex
-file.1=/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_b10d67ffd261ffad0df6daa83014c93140933ccb/classes.dex
-base.1=/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_b10d67ffd261ffad0df6daa83014c93140933ccb
-file.0=/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_6a8c184b4696ca6b8816990942343e66155ac033/classes.dex
+#Thu Jun 01 09:22:02 CDT 2017
+base.0=/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main
+renamed.0=classes.dex
+file.0=/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex

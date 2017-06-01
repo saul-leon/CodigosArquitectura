@@ -19,5 +19,32 @@
         sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
         <dex dex="/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_6a8c184b4696ca6b8816990942343e66155ac033/classes.dex" />
     </item>
+    <item
+        is-multidex="false"
+        jar="/home/omar/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.5/6b262da268f8ad9eff941b25503a9198f0a0ac93/slf4j-api-1.7.5.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6b262da268f8ad9eff941b25503a9198f0a0ac93">
+        <dex dex="/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/pre-dexed/release/slf4j-api-1.7.5_fdafe52bd1512272fc21df5801f9fbb1652d0909.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/omar/.gradle/caches/modules-2/files-2.1/com.pusher/java-websocket/1.4.1/6021a3f6aac1feb586bc7898685e9a72bd1986d3/java-websocket-1.4.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6021a3f6aac1feb586bc7898685e9a72bd1986d3">
+        <dex dex="/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/pre-dexed/release/java-websocket-1.4.1_2e8e1b2eb0a459013593320f31e2b1e98ba26be1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/omar/.gradle/caches/modules-2/files-2.1/com.pusher/pusher-java-client/1.4.0/1067ee7e28259d61862b3fbde5582903dc6ab004/pusher-java-client-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1067ee7e28259d61862b3fbde5582903dc6ab004">
+        <dex dex="/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/pre-dexed/release/pusher-java-client-1.4.0_1e9b6f3fe5daa5056c9bdd108cea99d0443e3979.jar" />
+    </item>
 
 </items>
