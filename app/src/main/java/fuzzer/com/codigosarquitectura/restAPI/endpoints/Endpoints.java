@@ -20,5 +20,5 @@ import retrofit2.http.POST;
 public interface Endpoints {
     @FormUrlEncoded
     @POST(ConstantesRestAPI.ENDPOINT)
-    Call<Respuesta> obtenerDatosTransaccion(@Field("pa_FchInicio") String pa_FchInicio, @Field("pa_FchFin") String pa_FchFin, @Field("destinatario") String destinatario);
+    Call<Respuesta> obtenerDatosTransaccion(@Field("pa_FchInicio") String pa_FchInicio, @Field("pa_FchFin") String pa_FchFin, @Field("destinatario") String destinatario, @Field("fecha") String fechaActual);
 }

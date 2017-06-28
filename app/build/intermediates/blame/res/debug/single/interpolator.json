@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/interpolator/mr_linear_out_slow_in.xml",
+        "source": "/home/omar/.android/build-cache/e282943dbd719a743c8354e74d6fdca3a7a085f8/output/res/interpolator/mr_linear_out_slow_in.xml"
+    },
+    {
+        "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/interpolator/mr_fast_out_slow_in.xml",
+        "source": "/home/omar/.android/build-cache/e282943dbd719a743c8354e74d6fdca3a7a085f8/output/res/interpolator/mr_fast_out_slow_in.xml"
+    }
+]

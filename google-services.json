@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "758139914797",
+    "firebase_url": "https://miefectivocliente-ios.firebaseio.com",
+    "project_id": "miefectivocliente-ios",
+    "storage_bucket": "miefectivocliente-ios.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:758139914797:android:e3b2ded7b32d9f1e",
+        "android_client_info": {
+          "package_name": "fuzzer.com.codigosarquitectura"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "758139914797-1lpa6hrrul3nvbtsotv8gsv0a0114rek.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNQU8vbfnt1x2gR-YGI0nAGBNEr-nDrfQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

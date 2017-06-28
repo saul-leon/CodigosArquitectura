@@ -10,6 +10,8 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.google.firebase.iid.FirebaseInstanceId;
+
 public class MainActivity extends AppCompatActivity {
 
     private Switch activarGuardia;
@@ -23,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
         activarGuardia = (Switch) findViewById(R.id.activarGuardia);
 
 
+        String refreshedToken = FirebaseInstanceId.getInstance().getToken();
+        Log.e("GET TOKEN", " TOKEN <>>>: " + refreshedToken);
 
         if(isServiceRunning()){
             activarGuardia.setChecked(true);

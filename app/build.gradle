@@ -7,9 +7,10 @@ android {
         applicationId "fuzzer.com.codigosarquitectura"
         minSdkVersion 21
         targetSdkVersion 25
-        versionCode 2
-        versionName "2"
+        versionCode 4
+        versionName "2.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
     buildTypes {
         release {
@@ -33,5 +34,10 @@ dependencies {
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.pusher:pusher-java-client:1.4.0'
+
+    compile 'com.google.firebase:firebase-messaging:11.0.1'
+    compile 'com.firebase:firebase-jobdispatcher:0.6.0'
+
     testCompile 'junit:junit:4.12'
 }
+apply plugin: 'com.google.gms.google-services'

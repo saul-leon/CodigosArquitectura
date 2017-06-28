@@ -1,4 +1,4 @@
-#Thu Jun 01 09:22:02 CDT 2017
+#Wed Jun 28 12:14:28 CDT 2017
 base.0=/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main
 renamed.0=classes.dex
 file.0=/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex

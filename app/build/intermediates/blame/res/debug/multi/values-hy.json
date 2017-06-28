@@ -1,0 +1,26 @@
+[
+    {
+        "outputFile": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hy/values-hy.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 105,
+                    "endColumn": 209,
+                    "endOffset": 310
+                },
+                "from": {
+                    "file": "/home/omar/.android/build-cache/dc194f4dea4197e8225ac8855ac56e83d8d57cc8/output/res/values-hy/values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 0,
+                        "startOffset": 285,
+                        "endColumn": 209,
+                        "endOffset": 494
+                    }
+                }
+            }
+        ]
+    }
+]

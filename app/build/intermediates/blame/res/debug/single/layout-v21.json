@@ -12,6 +12,10 @@
         "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/layout-v21/notification_template_custom_big.xml"
     },
     {
+        "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/layout-v21/place_autocomplete_fragment.xml",
+        "source": "/home/omar/.android/build-cache/8d035f779c2cfbb423f88e9241fc1601822bfc57/output/res/layout-v21/place_autocomplete_fragment.xml"
+    },
+    {
         "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
         "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/layout-v21/notification_action_tombstone.xml"
     }

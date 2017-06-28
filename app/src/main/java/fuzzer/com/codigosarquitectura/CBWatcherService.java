@@ -40,7 +40,7 @@ public class CBWatcherService extends Service {
 
     //declare Listener
     ClipboardManager.OnPrimaryClipChangedListener listener;
-
+    Pusher pusher;
 
     @Override
     public void onCreate() {
@@ -48,7 +48,7 @@ public class CBWatcherService extends Service {
         Log.e("-->>", "inicio servicio");
 
 
-        Pusher pusher = new Pusher("3c9aa0e2bcc0ff7d6926");
+        pusher = new Pusher("3c9aa0e2bcc0ff7d6926");
 
         Channel channel = pusher.subscribe("enviar");
         channel.bind("enviar-event", new SubscriptionEventListener() {
@@ -83,7 +83,7 @@ public class CBWatcherService extends Service {
         Log.e("-->>", "servicio destruido on destroy");
         clipboardManager.removePrimaryClipChangedListener(listener);
         stopSelf();
-
+        pusher.disconnect();
         super.onDestroy();
 
 
@@ -108,16 +108,13 @@ public class CBWatcherService extends Service {
                         String numero = "";
                         if (matcher.find()) {
                             numero = matcher.group(0);
-                            Toast.makeText(context, "numero encontrado: " + numero, Toast.LENGTH_SHORT).show();
+                          //  Toast.makeText(context, "numero encontrado: " + numero, Toast.LENGTH_SHORT).show();
                             consumirServicioDeMemo(numero);
                         } else {
                             Toast.makeText(context, "no hay un numero valido", Toast.LENGTH_SHORT).show();
                         }
                         Log.e("Numero encontrado->", numero);
-
-
                     }
-
 
                 } catch (NullPointerException e) {
 
@@ -204,7 +201,7 @@ public class CBWatcherService extends Service {
 
         RestApiAdapter restApiAdapter = new RestApiAdapter();
         Endpoints endpoints = restApiAdapter.establecerConexionRestAPI();
-        Call<Respuesta> listaCodigosCall = endpoints.obtenerDatosTransaccion(fInicial, fFinal, "521" + numero);
+        Call<Respuesta> listaCodigosCall = endpoints.obtenerDatosTransaccion(fInicial, fFinal, "521" + numero, new Date().toString());
         listaCodigosCall.enqueue(new Callback<Respuesta>() {
             @Override
             public void onResponse(Call<Respuesta> call, Response<Respuesta> response) {
