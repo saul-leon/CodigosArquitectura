@@ -36,12 +36,16 @@ public class CodigosAdapter extends ArrayAdapter<Codigos> {
         TextView destinatario = (TextView) convertView.findViewById(R.id.destinatario);
         TextView codigo = (TextView) convertView.findViewById(R.id.codigo);
         TextView tipo = (TextView) convertView.findViewById(R.id.tipo);
+        TextView origen = (TextView) convertView.findViewById(R.id.origen);
+
+
         // Populate the data into the template view using the data object
         logId.setText(codigos.getLogId());
         fecha.setText(codigos.getFecha());
         destinatario.setText(codigos.getDestinatario());
         codigo.setText(codigos.getCodigo());
         tipo.setText(codigos.getTipo());
+        origen.setText(codigos.getOrigen());
         // Return the completed view to render on screen
         return convertView;
     }

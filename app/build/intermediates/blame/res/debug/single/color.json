@@ -1,23 +1,31 @@
 [
     {
-        "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/color/wallet_secondary_text_holo_dark.xml",
-        "source": "/home/omar/.android/build-cache/1983c4eabdd0f86031e31732d09e7fcb8270bb99/output/res/color/wallet_secondary_text_holo_dark.xml"
+        "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/color/abc_tint_edittext.xml",
+        "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/color/abc_tint_edittext.xml"
+    },
+    {
+        "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/color/abc_btn_colored_text_material.xml",
+        "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/color/abc_btn_colored_text_material.xml"
+    },
+    {
+        "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/color/switch_thumb_material_light.xml",
+        "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/color/switch_thumb_material_light.xml"
     },
     {
         "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/color/abc_tint_seek_thumb.xml",
         "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/color/abc_tint_seek_thumb.xml"
     },
     {
-        "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/color/abc_search_url_text.xml",
-        "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/color/abc_search_url_text.xml"
-    },
-    {
         "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_dark.xml",
         "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/color/abc_secondary_text_material_dark.xml"
     },
     {
-        "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/color/wallet_primary_text_holo_light.xml",
-        "source": "/home/omar/.android/build-cache/1983c4eabdd0f86031e31732d09e7fcb8270bb99/output/res/color/wallet_primary_text_holo_light.xml"
+        "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/color/abc_search_url_text.xml",
+        "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/color/abc_search_url_text.xml"
+    },
+    {
+        "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/color/abc_tint_switch_thumb.xml",
+        "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/color/abc_tint_switch_thumb.xml"
     },
     {
         "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_dark.xml",
@@ -28,8 +36,12 @@
         "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/color/abc_btn_colored_borderless_text_material.xml"
     },
     {
-        "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/color/common_google_signin_btn_text_light.xml",
-        "source": "/home/omar/.android/build-cache/d602f5418ac8350da52ef1c8e7bdd9a9378f98e1/output/res/color/common_google_signin_btn_text_light.xml"
+        "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/color/abc_tint_spinner.xml",
+        "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/color/abc_tint_spinner.xml"
+    },
+    {
+        "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/color/abc_tint_switch_track.xml",
+        "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/color/abc_tint_switch_track.xml"
     },
     {
         "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/color/abc_tint_default.xml",
@@ -44,8 +56,8 @@
         "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/color/abc_hint_foreground_material_light.xml"
     },
     {
-        "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/color/common_google_signin_btn_text_dark.xml",
-        "source": "/home/omar/.android/build-cache/d602f5418ac8350da52ef1c8e7bdd9a9378f98e1/output/res/color/common_google_signin_btn_text_dark.xml"
+        "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/color/switch_thumb_material_dark.xml",
+        "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/color/switch_thumb_material_dark.xml"
     },
     {
         "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_light.xml",
@@ -60,39 +72,11 @@
         "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/color/abc_secondary_text_material_light.xml"
     },
     {
-        "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/color/abc_tint_btn_checkable.xml",
-        "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/color/abc_tint_btn_checkable.xml"
-    },
-    {
-        "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/color/abc_btn_colored_text_material.xml",
-        "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/color/abc_btn_colored_text_material.xml"
-    },
-    {
-        "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/color/abc_tint_edittext.xml",
-        "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/color/abc_tint_edittext.xml"
-    },
-    {
-        "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/color/switch_thumb_material_light.xml",
-        "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/color/switch_thumb_material_light.xml"
-    },
-    {
-        "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/color/abc_tint_switch_thumb.xml",
-        "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/color/abc_tint_switch_thumb.xml"
-    },
-    {
-        "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/color/abc_tint_spinner.xml",
-        "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/color/abc_tint_spinner.xml"
-    },
-    {
-        "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/color/abc_tint_switch_track.xml",
-        "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/color/abc_tint_switch_track.xml"
-    },
-    {
-        "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/color/switch_thumb_material_dark.xml",
-        "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/color/switch_thumb_material_dark.xml"
-    },
-    {
         "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/color/abc_hint_foreground_material_dark.xml",
         "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/color/abc_hint_foreground_material_dark.xml"
+    },
+    {
+        "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/color/abc_tint_btn_checkable.xml",
+        "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/color/abc_tint_btn_checkable.xml"
     }
 ]

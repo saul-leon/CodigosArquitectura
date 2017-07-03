@@ -2,76 +2,94 @@
 <items version="2" >
 
     <item
-        is-multidex="false"
-        jar="/home/omar/.android/build-cache/817c1f6154acebeaaaf24fff965c1d7af3b7ddc6/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e00b71dcf2fbecaf59b0d487d11839522dd7863d">
-        <dex dex="/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/pre-dexed/debug/classes_0d1a56436106d072c63ec761de2e3abd0c7f016b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/omar/.android/build-cache/dc194f4dea4197e8225ac8855ac56e83d8d57cc8/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6178e31397c24ab1bfc09766832cdcf519621eb7">
-        <dex dex="/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/pre-dexed/debug/classes_812e8ba8dfd78a7bb1856153a79a4a6686578728.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/omar/.android/build-cache/9dc712e47b91fa0b914f5b24973729729f126f3b/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="5bd38c72db0a3b4140d38b7fb527e78e46126d79">
-        <dex dex="/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/pre-dexed/debug/classes_c8659a080cd11844463f2e6c87773816a0bca83f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/omar/.android/build-cache/e423b7a0fcc26efdbba14cc7bd78ac9cc283b3cb/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="54511008bf7d1aabd871d8d3a26781b3f2bd9617">
-        <dex dex="/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/pre-dexed/debug/classes_1e92b2d4853197493380037719d9c14d3155b9c0.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/omar/.android/build-cache/2df692213a859fd66c2370469421a968f03fe477/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d4acacbab67243d9eb026ea759aefd401d070f3e">
-        <dex dex="/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/pre-dexed/debug/classes_d7865b5a37eb88956586b1862bd6e086215b50d8.jar" />
-    </item>
-    <item
-        is-multidex="false"
+        is-multidex="true"
         jar="/home/omar/.android/build-cache/5b67de54f0a7380d2a045342be57c1dd19742a4a/output/jars/classes.jar"
-        jumboMode="false"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="374d595ee099a19b6c1c3718cdb4c345be7a3d45">
-        <dex dex="/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/pre-dexed/debug/classes_aaab5042973f529692b76b915d58fa92e0361d8c.jar" />
+        <dex dex="/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_aaab5042973f529692b76b915d58fa92e0361d8c/classes.dex" />
     </item>
     <item
-        is-multidex="false"
+        is-multidex="true"
+        jar="/home/omar/.android/build-cache/817c1f6154acebeaaaf24fff965c1d7af3b7ddc6/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e00b71dcf2fbecaf59b0d487d11839522dd7863d">
+        <dex dex="/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0d1a56436106d072c63ec761de2e3abd0c7f016b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/omar/.android/build-cache/3e19a7493668b124814183e3b4b4bc2e55f793e9/output/jars/classes.jar"
-        jumboMode="false"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="32054268e6c9fdff0c9c5deafafd0bd105120fb6">
-        <dex dex="/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/pre-dexed/debug/classes_433d99c47f90c63dcb4ba4cd3b3441eaed4f04e7.jar" />
+        <dex dex="/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_433d99c47f90c63dcb4ba4cd3b3441eaed4f04e7/classes.dex" />
     </item>
     <item
-        is-multidex="false"
+        is-multidex="true"
+        jar="/home/omar/.android/build-cache/e423b7a0fcc26efdbba14cc7bd78ac9cc283b3cb/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="54511008bf7d1aabd871d8d3a26781b3f2bd9617">
+        <dex dex="/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_1e92b2d4853197493380037719d9c14d3155b9c0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/omar/.android/build-cache/2df692213a859fd66c2370469421a968f03fe477/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d4acacbab67243d9eb026ea759aefd401d070f3e">
+        <dex dex="/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_d7865b5a37eb88956586b1862bd6e086215b50d8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/omar/.android/build-cache/dc194f4dea4197e8225ac8855ac56e83d8d57cc8/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6178e31397c24ab1bfc09766832cdcf519621eb7">
+        <dex dex="/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_812e8ba8dfd78a7bb1856153a79a4a6686578728/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/omar/.android/build-cache/9dc712e47b91fa0b914f5b24973729729f126f3b/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5bd38c72db0a3b4140d38b7fb527e78e46126d79">
+        <dex dex="/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_c8659a080cd11844463f2e6c87773816a0bca83f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_6a8c184b4696ca6b8816990942343e66155ac033/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="478d7e285d842cf89c056268f507bc5f57a0e056">
+        <dex dex="/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_b10d67ffd261ffad0df6daa83014c93140933ccb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/omar/.android/build-cache/d05fe4fa7bc616a416985072ca67057b0de99a16/output/jars/classes.jar"
-        jumboMode="false"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="21160c044ba984fb2e33b833c89a496becb85cfd">
-        <dex dex="/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/pre-dexed/debug/classes_4237826faba787ee772dbeb57c283a071d6661c9.jar" />
+        <dex dex="/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_4237826faba787ee772dbeb57c283a071d6661c9/classes.dex" />
     </item>
 
 </items>

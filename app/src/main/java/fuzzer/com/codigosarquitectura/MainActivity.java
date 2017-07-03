@@ -5,18 +5,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.Toast;
-
-import com.google.firebase.iid.FirebaseInstanceId;
 
 public class MainActivity extends AppCompatActivity {
 
     private Switch activarGuardia;
 
     Intent intent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,24 +23,24 @@ public class MainActivity extends AppCompatActivity {
         activarGuardia = (Switch) findViewById(R.id.activarGuardia);
 
 
-        String refreshedToken = FirebaseInstanceId.getInstance().getToken();
-        Log.e("GET TOKEN", " TOKEN <>>>: " + refreshedToken);
+//        String refreshedToken = FirebaseInstanceId.getInstance().getToken();
+//        Log.e("GET TOKEN", " TOKEN <>>>: " + refreshedToken);
 
-        if(isServiceRunning()){
+        if (isServiceRunning()) {
             activarGuardia.setChecked(true);
-        }else{
+        } else {
             activarGuardia.setChecked(false);
         }
 
         activarGuardia.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                Log.e("swich activarGuardia",isChecked+"");
-                if(isChecked){
+                Log.e("swich activarGuardia", isChecked + "");
+                if (isChecked) {
                     Toast.makeText(MainActivity.this, "Guardia on", Toast.LENGTH_SHORT).show();
                     start();
 
-                }else{
+                } else {
                     Toast.makeText(MainActivity.this, "Guardia off", Toast.LENGTH_SHORT).show();
                     stop();
                     finishAndRemoveTask();
@@ -53,22 +51,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void start() {
-        intent = new Intent(this, CBWatcherService.class);
-        startService(intent);
+
+        if (!isServiceRunning()) {
+            Log.e("start service >>","Siempre inicia el servicio chunche");
+            intent = new Intent(this, CBWatcherService.class);
+            startService(intent);
+        }
     }
 
     public void stop() {
         ActivityManager am = (ActivityManager) getSystemService(MainActivity.ACTIVITY_SERVICE);
         am.killBackgroundProcesses("fuzzer.com.codigosarquitectura.CBWatcherService");
+        am.killBackgroundProcesses("fuzzer.com.codigosarquitectura.FirebaseBackGroundService");
 
         intent = new Intent(this, CBWatcherService.class);
+        stopService(intent);
+
+        intent = new Intent(this, FirebaseBackGroundService.class);
         stopService(intent);
     }
 
     public boolean isServiceRunning() {
         ActivityManager manager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
-        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)){
-            if("fuzzer.com.codigosarquitectura.CBWatcherService".equals(service.service.getClassName())) {
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if ("fuzzer.com.codigosarquitectura.CBWatcherService".equals(service.service.getClassName())) {
                 return true;
             }
         }

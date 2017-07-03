@@ -15,6 +15,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import fuzzer.com.codigosarquitectura.restAPI.models.Codigos;
@@ -29,8 +30,11 @@ public class ListaCodigos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_codigos);
         Intent intent = getIntent();
-        String data = intent.getStringExtra("data");
-        Log.e("data lista", data);
+        String dataSMS = intent.getStringExtra("dataSMS");
+        String dataVOZ = intent.getStringExtra("dataVOZ");
+
+
+        Log.e("dataVOZ", dataVOZ);
 
 
         //consumoServicio(numero);
@@ -54,23 +58,41 @@ public class ListaCodigos extends AppCompatActivity {
             }
         });
 
-        crearListaDesdeStringData(data);
+        crearListaDesdeStringData(dataSMS, dataVOZ);
     }
 
-    private void crearListaDesdeStringData(String data) {
-        ArrayList<Codigos> codigos = new Gson().fromJson(data, new TypeToken<List<Codigos>>() {
+    private void crearListaDesdeStringData(String dataSMS, String dataVOZ) {
+        ArrayList<Codigos> codigosSMS = new Gson().fromJson(dataSMS, new TypeToken<List<Codigos>>() {
         }.getType());
-        if (!codigos.isEmpty()) {
 
-            Log.e("conversion", codigos.get(0).getDestinatario() + "");
+        ArrayList<Codigos> codigosVOZ = new Gson().fromJson(dataVOZ, new TypeToken<List<Codigos>>() {
+        }.getType());
+
+
+        for (int i = 0; i < codigosSMS.size(); i++) {
+            codigosSMS.get(i).setOrigen("SMS");
+        }
+
+        for (int i = 0; i < codigosVOZ.size(); i++) {
+            codigosVOZ.get(i).setOrigen("VOZ");
+        }
+
+        ArrayList<Codigos> codigos = new ArrayList<>();
+
+        for (Codigos codigo : codigosVOZ) {
+            codigos.add(codigo);
+        }
+        for (Codigos codigo : codigosSMS) {
+            codigos.add(codigo);
+        }
+
+        if (!codigosSMS.isEmpty()) {
             mostrarDatos(codigos);
         } else {
             String mensaje = "No se encontraron peticiones para este numero, favor de validarlo";
             Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
             abrirWhats(mensaje);
         }
-
-
     }
 
     private void abrirWhats(String cod) {
@@ -147,10 +169,22 @@ public class ListaCodigos extends AppCompatActivity {
 //    }
 
     private void mostrarDatos(ArrayList<Codigos> listaDeCodigos) {
-        CodigosAdapter codigosAdapter = new CodigosAdapter(this, listaDeCodigos);
+
+        //ordenar Lista por hora de solicitud, de mayor a menor
+
+        CodigosAdapter codigosAdapter = new CodigosAdapter(this, ordenarLista(listaDeCodigos));
 
         listaC.setAdapter(codigosAdapter);
         Log.e("->", "mostrando en pantalla");
+    }
+
+    private ArrayList<Codigos> ordenarLista(ArrayList<Codigos> listaDeCodigos) {
+
+        //TODO ordena lista por hora de solicitud de la mas reciente a mas antigua
+        Collections.sort(listaDeCodigos);
+        Collections.reverse(listaDeCodigos);
+        return listaDeCodigos;
+        //*************************************************************************
     }
 
 

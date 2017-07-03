@@ -1,22 +1,44 @@
 package fuzzer.com.codigosarquitectura.restAPI.models;
 
+import android.support.annotation.NonNull;
+import android.util.Log;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by omar on 25/05/17.
  */
 
-public class Codigos {
+public class Codigos implements Comparable<Codigos> {
+
+
     private String logId;
     private String fecha;
     private String destinatario;
     private String codigo;
     private String tipo;
+    private String origen;
 
-    public Codigos(String logId, String fecha, String destinatario, String codigo, String tipo) {
-        this.logId = logId;
+    private Date fechaSolicitud;
+
+    public Codigos(String logId, String fecha, String destinatario, String codigo, String tipo, String origen) {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-DD HH:mm:ss");
+
+        try {
+            this.fechaSolicitud = formatter.parse(fecha);
+            Log.e("fechaSolicitud >> ", fechaSolicitud.toString());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
         this.fecha = fecha;
+        this.logId = logId;
         this.destinatario = destinatario;
         this.codigo = codigo;
         this.tipo = tipo;
+        this.origen = origen;
     }
 
     public String getLogId() {
@@ -33,6 +55,23 @@ public class Codigos {
 
     public void setFecha(String fecha) {
         this.fecha = fecha;
+    }
+
+    public Date getFechaSolicitud() {
+
+
+
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-DD HH:mm:ss");
+        try {
+            this.fechaSolicitud = formatter.parse(fecha);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return fechaSolicitud;
+    }
+
+    public void setFechaSolicitud(Date fechaSolicitud) {
+        this.fechaSolicitud = fechaSolicitud;
     }
 
     public String getDestinatario() {
@@ -57,5 +96,20 @@ public class Codigos {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    public String getOrigen() {
+        return origen;
+    }
+
+    public void setOrigen(String origen) {
+        this.origen = origen;
+    }
+
+    @Override
+    public int compareTo(@NonNull Codigos o) {
+        if (getFechaSolicitud() == null || o.getFechaSolicitud() == null)
+            return 0;
+        return getFechaSolicitud().compareTo(o.getFechaSolicitud());
     }
 }
