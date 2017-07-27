@@ -64,6 +64,10 @@
         "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/layout/abc_select_dialog_material.xml"
     },
     {
+        "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/layout/notification_action.xml",
+        "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/layout/notification_action.xml"
+    },
+    {
         "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/layout/notification_template_lines_media.xml",
         "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/layout/notification_template_lines_media.xml"
     },
@@ -116,6 +120,10 @@
         "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/layout/abc_action_mode_close_item_material.xml"
     },
     {
+        "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/layout/notification_action_tombstone.xml",
+        "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/layout/notification_action_tombstone.xml"
+    },
+    {
         "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/layout/select_dialog_multichoice_material.xml",
         "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/layout/select_dialog_multichoice_material.xml"
     },
@@ -146,6 +154,10 @@
     {
         "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/layout/abc_popup_menu_item_layout.xml",
         "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/layout/abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/layout/notification_template_icon_group.xml",
+        "source": "/home/omar/.android/build-cache/b8718cf549267245762abac48807157c20b90f97/output/res/layout/notification_template_icon_group.xml"
     },
     {
         "merged": "/home/omar/Documentos/omar/ProyectoSAUL/CodigosArquitectura/app/build/intermediates/res/merged/debug/layout/select_dialog_item_material.xml",

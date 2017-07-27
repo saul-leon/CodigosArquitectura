@@ -4,9 +4,13 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.ContextMenu;
+import android.view.MenuInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -17,25 +21,22 @@ import com.google.gson.reflect.TypeToken;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 import fuzzer.com.codigosarquitectura.restAPI.models.Codigos;
 
 public class ListaCodigos extends AppCompatActivity {
     ArrayList<Codigos> listaDeCodigos;
     ListView listaC;
-
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Log.e(this.getClass().getName(),"Temino de hablar");
         setContentView(R.layout.activity_lista_codigos);
         Intent intent = getIntent();
         String dataSMS = intent.getStringExtra("dataSMS");
         String dataVOZ = intent.getStringExtra("dataVOZ");
-
-
-        Log.e("dataVOZ", dataVOZ);
-
 
         //consumoServicio(numero);
 
@@ -59,7 +60,11 @@ public class ListaCodigos extends AppCompatActivity {
         });
 
         crearListaDesdeStringData(dataSMS, dataVOZ);
+
+
+
     }
+
 
     private void crearListaDesdeStringData(String dataSMS, String dataVOZ) {
         ArrayList<Codigos> codigosSMS = new Gson().fromJson(dataSMS, new TypeToken<List<Codigos>>() {
@@ -88,6 +93,7 @@ public class ListaCodigos extends AppCompatActivity {
 
         if (!codigosSMS.isEmpty()) {
             mostrarDatos(codigos);
+
         } else {
             String mensaje = "No se encontraron peticiones para este numero, favor de validarlo";
             Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
@@ -120,62 +126,17 @@ public class ListaCodigos extends AppCompatActivity {
         }
     }
 
-//    public void consumoServicio(String numero) {
-//
-//        Log.e("->", "consume servicio");
-//
-//
-//        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-//        String fInicial = sdf.format(new Date());
-//        Calendar c = Calendar.getInstance();
-//        c.setTime(new Date());
-//        c.add(Calendar.DATE, 1);
-//        String fFinal = sdf.format(c.getTime());
-//        Log.e("fecha", fInicial + "    " + fFinal);
-//
-//
-//        RestApiAdapter restApiAdapter = new RestApiAdapter();
-//        Endpoints endpoints = restApiAdapter.establecerConexionRestAPI();
-//        Call<String> listaCodigosCall = endpoints.obtenerDatosTransaccion(fInicial, fFinal, numero);
-//        listaCodigosCall.enqueue(new Callback<String>() {
-//            @Override
-//            public void onResponse(Call<String> call, Response<String> response) {
-//                Log.e("respuesta solicitud", response.body());
-//            }
-//
-//            @Override
-//            public void onFailure(Call<String> call, Throwable t) {
-//                Log.e("->", "error en el consumo");
-//                Log.e("->", t.getMessage());
-//            }
-//        });
-//
-////        listaCodigosCall.enqueue(new Callback<ArrayList<Codigos>>() {
-////            @Override
-////            public void onResponse(Call<ArrayList<Codigos>> call, Response<ArrayList<Codigos>> response) {
-////                listaDeCodigos = new ArrayList<Codigos>();
-////                listaDeCodigos = response.body();
-////                Log.e("tanaño de lista", listaDeCodigos.size() + "");
-////                Log.e("elemento", listaDeCodigos.get(0).getCodigo());
-////                mostrarDatos(listaDeCodigos);
-////            }
-////
-////            @Override
-////            public void onFailure(Call<ArrayList<Codigos>> call, Throwable t) {
-////                Log.e("->", "error en el consumo");
-////                Log.e("->", t.getMessage());
-////            }
-////        });
-//    }
 
     private void mostrarDatos(ArrayList<Codigos> listaDeCodigos) {
 
         //ordenar Lista por hora de solicitud, de mayor a menor
 
         CodigosAdapter codigosAdapter = new CodigosAdapter(this, ordenarLista(listaDeCodigos));
-
         listaC.setAdapter(codigosAdapter);
+
+
         Log.e("->", "mostrando en pantalla");
+
     }
 
     private ArrayList<Codigos> ordenarLista(ArrayList<Codigos> listaDeCodigos) {
@@ -188,4 +149,21 @@ public class ListaCodigos extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onBackPressed() {
+        this.finish();
+        Toast.makeText(this, ":)", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onPause() {
+        Toast.makeText(this, ";)", Toast.LENGTH_SHORT).show();
+        this.finish();
+        super.onPause();
+    }
+    @Override
+    protected void onStop() {
+        this.finish();
+        super.onStop();
+    }
 }

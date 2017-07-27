@@ -2303,7 +2303,7 @@ containing a value of this type.
         public static final int action_mode_bar_stub=0x7f0b004b;
         public static final int action_mode_close_button=0x7f0b002e;
         public static final int action_text=0x7f0b0068;
-        public static final int actions=0x7f0b0075;
+        public static final int actions=0x7f0b0076;
         public static final int activarGuardia=0x7f0b005f;
         public static final int activity_chooser_view_content=0x7f0b002f;
         public static final int add=0x7f0b001b;
@@ -2330,13 +2330,14 @@ containing a value of this type.
         public static final int edit_query=0x7f0b0051;
         public static final int end=0x7f0b0023;
         public static final int end_padder=0x7f0b007c;
+        public static final int enviar=0x7f0b007f;
         public static final int expand_activities_button=0x7f0b0030;
         public static final int expanded_menu=0x7f0b0045;
         public static final int fecha=0x7f0b0064;
         public static final int home=0x7f0b0004;
         public static final int homeAsUp=0x7f0b0016;
         public static final int icon=0x7f0b0034;
-        public static final int icon_group=0x7f0b0076;
+        public static final int icon_group=0x7f0b0077;
         public static final int ifRoom=0x7f0b0027;
         public static final int image=0x7f0b0031;
         public static final int info=0x7f0b0073;
@@ -2355,6 +2356,8 @@ containing a value of this type.
         public static final int notification_background=0x7f0b0074;
         public static final int notification_main_column=0x7f0b006f;
         public static final int notification_main_column_container=0x7f0b006e;
+        public static final int o1=0x7f0b007d;
+        public static final int o2=0x7f0b007e;
         public static final int origen=0x7f0b0060;
         public static final int packed=0x7f0b000c;
         public static final int parent=0x7f0b0009;
@@ -2362,7 +2365,7 @@ containing a value of this type.
         public static final int progress_circular=0x7f0b0005;
         public static final int progress_horizontal=0x7f0b0006;
         public static final int radio=0x7f0b0048;
-        public static final int right_icon=0x7f0b0077;
+        public static final int right_icon=0x7f0b0075;
         public static final int right_side=0x7f0b0070;
         public static final int screen=0x7f0b001d;
         public static final int scrollIndicatorDown=0x7f0b003e;
@@ -2469,6 +2472,9 @@ containing a value of this type.
         public static final int select_dialog_singlechoice_material=0x7f04002f;
         public static final int support_simple_spinner_dropdown_item=0x7f040030;
     }
+    public static final class menu {
+        public static final int opciones_menu=0x7f0d0000;
+    }
     public static final class mipmap {
         public static final int ic_launcher=0x7f030000;
         public static final int ic_launcher_round=0x7f030001;
@@ -2508,14 +2514,17 @@ containing a value of this type.
         public static final int app_name=0x7f060022;
         public static final int common_google_play_services_unknown_issue=0x7f060013;
         public static final int default_web_client_id=0x7f060023;
-        public static final int fcm_fallback_notification_channel_label=0x7f060024;
-        public static final int firebase_database_url=0x7f060025;
-        public static final int gcm_defaultSenderId=0x7f060026;
-        public static final int google_api_key=0x7f060027;
-        public static final int google_app_id=0x7f060028;
-        public static final int google_crash_reporting_api_key=0x7f060029;
-        public static final int google_storage_bucket=0x7f06002a;
-        public static final int project_id=0x7f06002b;
+        public static final int enviar=0x7f060024;
+        public static final int fcm_fallback_notification_channel_label=0x7f060025;
+        public static final int firebase_database_url=0x7f060026;
+        public static final int gcm_defaultSenderId=0x7f060027;
+        public static final int google_api_key=0x7f060028;
+        public static final int google_app_id=0x7f060029;
+        public static final int google_crash_reporting_api_key=0x7f06002a;
+        public static final int google_storage_bucket=0x7f06002b;
+        public static final int o1=0x7f06002c;
+        public static final int o2=0x7f06002d;
+        public static final int project_id=0x7f06002e;
         public static final int search_menu_title=0x7f060014;
         public static final int status_bar_notification_info_overflow=0x7f060015;
     }

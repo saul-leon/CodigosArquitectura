@@ -1,6 +1,8 @@
 package fuzzer.com.codigosarquitectura;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import fuzzer.com.codigosarquitectura.restAPI.models.Codigos;
 
@@ -46,9 +49,25 @@ public class CodigosAdapter extends ArrayAdapter<Codigos> {
         codigo.setText(codigos.getCodigo());
         tipo.setText(codigos.getTipo());
         origen.setText(codigos.getOrigen());
+
+
+        //se saca la diferencia de tiempo
+        Date date = new Date();
+        long diferenciaTiempo =date.getTime() - codigos.getFechaSolicitud().getTime();
+
+
+        if( !codigos.getTipo().equals("Primer acceso") )
+            convertView.setBackgroundColor(
+                diferenciaTiempo<90000 ?
+                    Color.RED :
+                    Color.GREEN
+            );
+
         // Return the completed view to render on screen
         return convertView;
     }
+
+
 
     public Codigos getItem(int position){
         return listaC.get(position);

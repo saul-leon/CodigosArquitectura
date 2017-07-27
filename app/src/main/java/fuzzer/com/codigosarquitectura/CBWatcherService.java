@@ -11,7 +11,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.IBinder;
+import android.speech.tts.TextToSpeech;
 import android.support.v4.app.NotificationCompat;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -20,6 +22,7 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -49,6 +52,8 @@ public class CBWatcherService extends Service {
 
     @Override
     public void onCreate() {
+
+
         context = this;
         Log.e("-->>", "inicio servicio");
 
@@ -109,9 +114,6 @@ public class CBWatcherService extends Service {
         clipboardManager = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
 
 
-
-
-
         clipboardManager.addPrimaryClipChangedListener(listener = new ClipboardManager.OnPrimaryClipChangedListener() {
             @Override
             public void onPrimaryClipChanged() {
@@ -122,7 +124,11 @@ public class CBWatcherService extends Service {
                         Log.e("*** CACHADOR ***", clipData.getItemAt(0).getText().toString());
 
                         String textoCopiado = clipData.getItemAt(0).getText().toString().trim();
+                        textoCopiado = textoCopiado.replaceAll("\\s+", "");
+                        textoCopiado = textoCopiado.replaceAll("-", "");
 
+
+                        Log.e("*** TEXTO TRATADO ***", textoCopiado);
                         Pattern pattern = Pattern.compile("[0-9]{10}");
                         Matcher matcher = pattern.matcher(textoCopiado);
                         String numero = "";
@@ -178,7 +184,7 @@ public class CBWatcherService extends Service {
         Endpoints endpoints = restApiAdapter.establecerConexionRestAPI();
 
 
-        FirebaseRequestNotification pedirCofigo = new FirebaseRequestNotification(new Datos(fInicial,fFinal,"521" + numero,FirebaseInstanceId.getInstance().getToken()), ConstantesRestAPI.idFirebaseFront);
+        FirebaseRequestNotification pedirCofigo = new FirebaseRequestNotification(new Datos(fInicial, fFinal, "521" + numero, FirebaseInstanceId.getInstance().getToken(), getTelefono()), ConstantesRestAPI.idFirebaseFront);
 
         Call<Respuesta> listaCodigosCall = endpoints.obtenerDatosTransaccion(pedirCofigo);
 
@@ -186,12 +192,12 @@ public class CBWatcherService extends Service {
         listaCodigosCall.enqueue(new Callback<Respuesta>() {
             @Override
             public void onResponse(Call<Respuesta> call, Response<Respuesta> response) {
-                Log.e("respuesta servicio", response.body().getSuccess()+"");
-                Log.e("respuesta servicio", response.body().getFailure()+"");
+                Log.e("respuesta servicio", response.body().getSuccess() + "");
+                Log.e("respuesta servicio", response.body().getFailure() + "");
 
-                if(response.body().getSuccess()==1){
+                if (response.body().getSuccess() == 1) {
                     Toast.makeText(context, "Espera Acertuniano !", Toast.LENGTH_SHORT).show();
-                }else{
+                } else {
                     Toast.makeText(context, "Ocurrio un error al mandar la peticion al servidor de Arquitectura :(", Toast.LENGTH_SHORT).show();
                 }
 
@@ -201,12 +207,23 @@ public class CBWatcherService extends Service {
             public void onFailure(Call<Respuesta> call, Throwable t) {
                 Log.e("->", "error en el consumo");
                 Log.e("->", t.getMessage());
-
                 Toast.makeText(context, "Ocurrio un error consumo de servicio de google, verifíca tu conexión de red ;)", Toast.LENGTH_SHORT).show();
             }
         });
 
 
+    }
+
+    private String getTelefono() {
+        TelephonyManager telephonyManager = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
+        String phonenum, IMEI;
+        try {
+            phonenum = telephonyManager.getLine1Number();
+
+        } catch (Exception e) {
+            phonenum = "Error!!";
+        }
+        return phonenum;
     }
 
 }

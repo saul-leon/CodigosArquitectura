@@ -9,12 +9,14 @@ public class Datos {
     private String pa_FchFin;
     private String destinatario;
     private String to;
+    private String telefono;
 
-    public Datos(String pa_FchInicio, String pa_FchFin, String destinatario, String to) {
+    public Datos(String pa_FchInicio, String pa_FchFin, String destinatario, String to, String telefono) {
         this.pa_FchInicio = pa_FchInicio;
         this.pa_FchFin = pa_FchFin;
         this.destinatario = destinatario;
         this.to = to;
+        this.telefono = telefono;
     }
 
     public String getPa_FchInicio() {
@@ -47,5 +49,13 @@ public class Datos {
 
     public void setTo(String to) {
         this.to = to;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 }
