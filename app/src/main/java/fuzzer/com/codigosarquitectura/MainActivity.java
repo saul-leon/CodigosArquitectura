@@ -10,7 +10,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
-import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -46,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
         t1 = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
-                Log.e(getClass().getName(),"Estado TTS "+status);
-                Log.e(getClass().getName(),"TextToSpeech.ERROR "+TextToSpeech.ERROR);
+                Log.e(getClass().getName(), "Estado TTS " + status);
+                Log.e(getClass().getName(), "TextToSpeech.ERROR " + TextToSpeech.ERROR);
                 if (status != TextToSpeech.ERROR) {
                     t1.setLanguage(Locale.getDefault());
                 }
@@ -77,7 +76,8 @@ public class MainActivity extends AppCompatActivity {
         //set spinner data
         mostrarDatosenSpinner();
     }
-    public void mostrarDatosenSpinner(){
+
+    public void mostrarDatosenSpinner() {
         ArrayList<String> listaOpciones = new ArrayList<>();
         listaOpciones.add("Fuzzer machine");
         listaOpciones.add("Development machine");
@@ -94,9 +94,18 @@ public class MainActivity extends AppCompatActivity {
             intent = new Intent(this, CBWatcherService.class);
             startService(intent);
             this.finish();
-            Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.whatsapp");
-            startActivity(launchIntent);
+            if (whatsappIsInstaled()) {
+                Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.whatsapp");
+                startActivity(launchIntent);
+            } else {
+                Toast.makeText(this, "Por favor descarga WhatsApp", Toast.LENGTH_SHORT).show();
+            }
         }
+    }
+
+    private boolean whatsappIsInstaled() {
+        Intent intent = getPackageManager().getLaunchIntentForPackage("com.whatsapp");
+        return intent != null ? true : false;
     }
 
     public void stop() {
