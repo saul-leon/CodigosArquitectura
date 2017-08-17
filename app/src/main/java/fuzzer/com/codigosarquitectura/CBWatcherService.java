@@ -9,6 +9,7 @@ import android.content.ClipDescription;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
 import android.os.IBinder;
 import android.speech.tts.TextToSpeech;
@@ -177,6 +178,10 @@ public class CBWatcherService extends Service {
         c.setTime(new Date());
         c.add(Calendar.DATE, 1);
         String fFinal = sdf.format(c.getTime());
+
+
+
+        fInicial = obtenerFechaPreferencia();
         Log.e("fecha", fInicial + "    " + fFinal);
 
 
@@ -211,6 +216,14 @@ public class CBWatcherService extends Service {
             }
         });
 
+
+    }
+
+    private String obtenerFechaPreferencia() {
+
+        SharedPreferences fechaPreferencia = getSharedPreferences("FECHA_INICIAL", MODE_PRIVATE);
+        Calendar c = Calendar.getInstance();
+        return fechaPreferencia.getInt("DAY", c.get(Calendar.DAY_OF_MONTH))+"-"+fechaPreferencia.getInt("MONTH", c.get(Calendar.MONTH))+"-"+fechaPreferencia.getInt("YEAR", c.get(Calendar.YEAR));
 
     }
 

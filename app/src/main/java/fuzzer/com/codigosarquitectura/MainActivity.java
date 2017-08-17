@@ -4,16 +4,22 @@ import android.app.ActivityManager;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.icu.text.DateFormat;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
+import android.widget.DatePicker;
 import android.widget.Switch;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,12 +30,43 @@ public class MainActivity extends AppCompatActivity {
 
     Intent intent;
 
+    private DatePicker datePicker;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         activarGuardia = (Switch) findViewById(R.id.activarGuardia);
+
+        datePicker = (DatePicker) findViewById(R.id.datePicker);
+        Calendar maxDate = Calendar.getInstance();
+
+        maxDate.set(Calendar.HOUR_OF_DAY, 23);
+        maxDate.set(Calendar.MINUTE, 59);
+        maxDate.set(Calendar.SECOND, 59);
+
+
+        datePicker.setMaxDate(maxDate.getTimeInMillis());
+        int fecha[] = obtenerFechaDesdeSharePreference();
+        Log.e("Deberia poner" ,fecha[0]+" "+fecha[1]+" "+fecha[2]);
+        datePicker.init(fecha[2], fecha[1]-1, fecha[0], new DatePicker.OnDateChangedListener() {
+            @Override
+            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                Log.e("Date -->>>", "Year=" + year + " Month=" + (monthOfYear + 1) + " day=" + dayOfMonth);
+
+                SharedPreferences.Editor editor = getSharedPreferences("FECHA_INICIAL", MODE_PRIVATE).edit();
+
+                editor.putInt("DAY", dayOfMonth);
+                editor.putInt("MONTH", monthOfYear + 1);
+                editor.putInt("YEAR", year);
+                editor.apply();
+                Toast.makeText(MainActivity.this, "Fecha inicial cambiada correctamente", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        datePicker.setMaxDate(maxDate.getTimeInMillis());
 
 
 //        String refreshedToken = FirebaseInstanceId.getInstance().getToken();
@@ -75,6 +112,18 @@ public class MainActivity extends AppCompatActivity {
 
         //set spinner data
         mostrarDatosenSpinner();
+    }
+
+    private int[] obtenerFechaDesdeSharePreference() {
+        int[] dia = new int[3];
+        Calendar c = Calendar.getInstance();
+
+        SharedPreferences fechaPreferencia = getSharedPreferences("FECHA_INICIAL", MODE_PRIVATE);
+        dia[0] = fechaPreferencia.getInt("DAY", c.get(Calendar.DAY_OF_MONTH));
+        dia[1] = fechaPreferencia.getInt("MONTH", c.get(Calendar.MONTH));
+        dia[2] = fechaPreferencia.getInt("YEAR", c.get(Calendar.YEAR));
+        Log.e("fecha guardada",dia[0]+" "+dia[1]+" "+dia[2]);
+        return dia;
     }
 
     public void mostrarDatosenSpinner() {
