@@ -8,18 +8,18 @@ package com.google.android.gms;
 
 public final class R {
     public static final class id {
-        public static final int none = 0x7f0b0011;
-        public static final int normal = 0x7f0b0013;
-        public static final int radio = 0x7f0b0048;
-        public static final int text = 0x7f0b007c;
-        public static final int text2 = 0x7f0b007a;
-        public static final int wrap_content = 0x7f0b0021;
+        public static final int none = 0x7f070043;
+        public static final int normal = 0x7f070044;
+        public static final int radio = 0x7f070050;
+        public static final int text = 0x7f070071;
+        public static final int text2 = 0x7f070072;
+        public static final int wrap_content = 0x7f070080;
     }
     public static final class integer {
-        public static final int google_play_services_version = 0x7f0c0003;
+        public static final int google_play_services_version = 0x7f080003;
     }
     public static final class string {
-        public static final int common_google_play_services_unknown_issue = 0x7f060013;
-        public static final int fcm_fallback_notification_channel_label = 0x7f060025;
+        public static final int common_google_play_services_unknown_issue = 0x7f0c0020;
+        public static final int fcm_fallback_notification_channel_label = 0x7f0c0023;
     }
 }

@@ -1,10 +1,7 @@
 package fuzzer.com.codigosarquitectura.restAPI.models;
 
-/**
- * Created by omar on 30/06/17.
- */
-
 public class FirebaseRequestNotification {
+
     private Datos data;
     private String to;
 

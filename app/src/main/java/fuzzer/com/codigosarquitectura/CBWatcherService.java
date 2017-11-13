@@ -1,6 +1,5 @@
 package fuzzer.com.codigosarquitectura;
 
-
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -12,7 +11,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
 import android.os.IBinder;
-import android.speech.tts.TextToSpeech;
 import android.support.v4.app.NotificationCompat;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -23,7 +21,6 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -33,56 +30,64 @@ import fuzzer.com.codigosarquitectura.restAPI.endpoints.Endpoints;
 import fuzzer.com.codigosarquitectura.restAPI.models.Datos;
 import fuzzer.com.codigosarquitectura.restAPI.models.FirebaseRequestNotification;
 import fuzzer.com.codigosarquitectura.restAPI.models.Respuesta;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class CBWatcherService extends Service {
 
+    private Context context;
+    private ClipData clipData;
+    private ClipboardManager clipboardManager;
+    private ClipboardManager.OnPrimaryClipChangedListener listener;
 
-    Context context;
-
-
-    ClipboardManager clipboardManager;
-    ClipData clipData;
-    ClipData.Item item;
-
-    //declare Listener
-    ClipboardManager.OnPrimaryClipChangedListener listener;
-
+    private static final int ID_NOTIFICACIONES = 1;
+    private NotificationManager notifyManager;
 
     @Override
     public void onCreate() {
 
-
         context = this;
-        Log.e("-->>", "inicio servicio");
+
+        Log.i("onCreate", "[!] Starting");
+
+        // __ Notificaciones __
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+
+        builder.setContentIntent(
+            PendingIntent.getActivity(
+                this,
+                0,
+                new Intent(this, MainActivity.class),
+                0
+            )
+        );
+
         builder.setSmallIcon(R.drawable.rataicon);
-        Intent intent2 = new Intent(this, MainActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent2, 0);
-        builder.setContentIntent(pendingIntent);
         builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.rataicon));
         builder.setContentTitle("Guardia: SMS y VOZ");
         builder.setContentText("El servicio está activo");
         builder.setSubText("by Fuzzer");
         builder.setOngoing(true);
 
-        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        notifyManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        notifyManager.notify(ID_NOTIFICACIONES, builder.build());
 
-        // Will display the notification in the notification bar
-        notificationManager.notify(1, builder.build());
+    /* * *
+     * Capura los datos de la notificacion en modo texto
+     * y lo envia a la activity de lista de codigos
+     *
 
-/*     con esto capura los ddatos de la notificacion en modo texto y lo envia a la activity de lista de codigos
         Intent intent = new Intent(context, ListaCodigos.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra("data", data);
         startActivity(intent);
-*/
+
+    */
 
     }
-
 
 //    private OnPrimaryClipChangedListener listener = new OnPrimaryClipChangedListener() {
 //        public void onPrimaryClipChanged() {
@@ -93,19 +98,14 @@ public class CBWatcherService extends Service {
 
     @Override
     public void onDestroy() {
-        Log.e("-->>", "servicio destruido on destroy");
 
+        Log.i("onDestroy", "[!] Destroying");
 
         clipboardManager.removePrimaryClipChangedListener(listener);
+        notifyManager.cancel(ID_NOTIFICACIONES);
+
         stopSelf();
-
-        String ns = Context.NOTIFICATION_SERVICE;
-        NotificationManager nMgr = (NotificationManager) getApplicationContext().getSystemService(ns);
-        nMgr.cancel(1);
-
-
         super.onDestroy();
-
 
     }
 
@@ -113,44 +113,50 @@ public class CBWatcherService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
 
         clipboardManager = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-
-
         clipboardManager.addPrimaryClipChangedListener(listener = new ClipboardManager.OnPrimaryClipChangedListener() {
             @Override
             public void onPrimaryClipChanged() {
-                clipData = clipboardManager.getPrimaryClip();
 
-                try {
-                    if (clipData.getDescription().hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN)) {
-                        Log.e("*** CACHADOR ***", clipData.getItemAt(0).getText().toString());
+            clipData = clipboardManager.getPrimaryClip();
 
-                        String textoCopiado = clipData.getItemAt(0).getText().toString().trim();
-                        textoCopiado = textoCopiado.replaceAll("\\s+", "");
-                        textoCopiado = textoCopiado.replaceAll("-", "");
+            try {
 
+                if ( clipData.getDescription().hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN) &&
+                     clipData.getItemAt(0) != null) {
 
-                        Log.e("*** TEXTO TRATADO ***", textoCopiado);
-                        Pattern pattern = Pattern.compile("[0-9]{10}");
-                        Matcher matcher = pattern.matcher(textoCopiado);
-                        String numero = "";
-                        if (matcher.find()) {
-                            numero = matcher.group(0);
-                            Toast.makeText(context, "numero encontrado: " + numero, Toast.LENGTH_SHORT).show();
-                            consumirServicioDeMemo(numero);
-                        } else {
-                            Toast.makeText(context, "no hay un numero valido", Toast.LENGTH_SHORT).show();
-                        }
-                        Log.e("Numero encontrado->", numero);
+                    String textoCopiado = clipData.getItemAt(0).getText().toString().trim();
+
+                    Log.i("Clipboard", "Original: \""+ textoCopiado +"\"");
+
+                    textoCopiado = textoCopiado
+                                        .replaceAll("\\s+", "")
+                                        .replaceAll("-", "");
+
+                    Log.i("Clipboard", "Tratado: \""+ textoCopiado +"\"");
+
+                    Matcher matcher = ( Pattern.compile("[0-9]{10}") ).matcher(textoCopiado);
+
+                    if ( matcher.find() ) {
+
+                        String numero = matcher.group(0);
+                        Toast.makeText(context, "Número encontrado \""+ numero +"\"", Toast.LENGTH_SHORT).show();
+                        consumoServicioCodigos(numero);
+
+                    } else {
+
+                        Toast.makeText(context, "No hay ningún número valido", Toast.LENGTH_SHORT).show();
+
                     }
 
-                } catch (NullPointerException e) {
-
                 }
+
+            } catch (NullPointerException e) {
+                Log.i("onStartCommand", "Error controlado");
+            }
 
             }
 
         });
-
 
         return START_STICKY;
     }
@@ -160,62 +166,71 @@ public class CBWatcherService extends Service {
         return null;
     }
 
+    public void consumoServicioCodigos(String numero) {
 
-    public void consumirServicioDeMemo(String numero) {
+        Log.i("consumoServicioCodigos", "Inicio del consumo");
 
-        consumoServicio(numero);
-    }
+        // __ Fechas __
 
-
-    public void consumoServicio(String numero) {
-
-        Log.e("->", "consume servicio");
-
-
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        String fInicial = sdf.format(new Date());
         Calendar c = Calendar.getInstance();
         c.setTime(new Date());
         c.add(Calendar.DATE, 1);
-        String fFinal = sdf.format(c.getTime());
 
+        String fFinal = (new SimpleDateFormat("dd-MM-yyyy")).format(c.getTime());
+        String fInicial = obtenerFechaPreferencia();
 
+        // __ Peticion __
 
-        fInicial = obtenerFechaPreferencia();
-        Log.e("fecha", fInicial + "    " + fFinal);
+        Datos peticion = new Datos(
+                fInicial,
+                fFinal,
+                "521" + numero,
+                FirebaseInstanceId.getInstance().getToken(),
+                getTelefono()
+        );
 
+        Log.i("consumoServicioCodigos", "Peticion: " + peticion.toString());
 
-        RestApiAdapter restApiAdapter = new RestApiAdapter();
-        Endpoints endpoints = restApiAdapter.establecerConexionRestAPI();
+        // __ Conusmo __
 
+        Endpoints endpoints = (new RestApiAdapter()).establecerConexionRestAPI();
+        Call<Respuesta> listaCodigosCall = endpoints.obtenerDatosTransaccion(new FirebaseRequestNotification(
+            peticion,
+            ConstantesRestAPI.idFirebaseFront
+        ));
 
-        FirebaseRequestNotification pedirCofigo = new FirebaseRequestNotification(new Datos(fInicial, fFinal, "521" + numero, FirebaseInstanceId.getInstance().getToken(), getTelefono()), ConstantesRestAPI.idFirebaseFront);
-
-        Call<Respuesta> listaCodigosCall = endpoints.obtenerDatosTransaccion(pedirCofigo);
-
-        //   Call<Respuesta> listaCodigosCall = endpoints.obtenerDatosTransaccion(fInicial, fFinal, "521" + numero, new Date().toString(), FirebaseInstanceId.getInstance().getToken());
         listaCodigosCall.enqueue(new Callback<Respuesta>() {
+
             @Override
             public void onResponse(Call<Respuesta> call, Response<Respuesta> response) {
-                Log.e("respuesta servicio", response.body().getSuccess() + "");
-                Log.e("respuesta servicio", response.body().getFailure() + "");
 
-                if (response.body().getSuccess() == 1) {
-                    Toast.makeText(context, "Espera Acertuniano !", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(context, "Ocurrio un error al mandar la peticion al servidor de Arquitectura :(", Toast.LENGTH_SHORT).show();
-                }
+                Log.i("consumoServicioCodigos", "Success: " + response.body().getSuccess());
+                Log.i("consumoServicioCodigos", "Failure: " + response.body().getFailure());
+
+                Toast.makeText(
+                    context,
+                    response.body().getSuccess() == 1 ?
+                        "Espera Acertuniano!" :
+                        "Ocurrio un error al mandar la peticion al servidor de Arquitectura :(",
+                    Toast.LENGTH_SHORT
+                ).show();
 
             }
 
             @Override
             public void onFailure(Call<Respuesta> call, Throwable t) {
-                Log.e("->", "error en el consumo");
-                Log.e("->", t.getMessage());
-                Toast.makeText(context, "Ocurrio un error consumo de servicio de google, verifíca tu conexión de red ;)", Toast.LENGTH_SHORT).show();
-            }
-        });
 
+                Log.e("consumoServicioCodigos", "Error en el consumo: " + t.getMessage());
+
+                Toast.makeText(
+                    context,
+                    "Ocurrio un error consumo de servicio de google, verifíca tu conexión de red ;)",
+                    Toast.LENGTH_SHORT
+                ).show();
+
+            }
+
+        });
 
     }
 
@@ -228,14 +243,16 @@ public class CBWatcherService extends Service {
     }
 
     private String getTelefono() {
+
         TelephonyManager telephonyManager = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
-        String phonenum, IMEI;
+        String phonenum;
+
         try {
             phonenum = telephonyManager.getLine1Number();
-
         } catch (Exception e) {
             phonenum = "Error!!";
         }
+
         return phonenum;
     }
 

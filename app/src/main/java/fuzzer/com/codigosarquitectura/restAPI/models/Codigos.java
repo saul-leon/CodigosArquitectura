@@ -7,12 +7,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * Created by omar on 25/05/17.
- */
-
 public class Codigos implements Comparable<Codigos> {
-
 
     private String logId;
     private String fecha;
@@ -20,17 +15,22 @@ public class Codigos implements Comparable<Codigos> {
     private String codigo;
     private String tipo;
     private String origen;
-
     private Date fechaSolicitud;
 
-    public Codigos(String logId, String fecha, String destinatario, String codigo, String tipo, String origen) {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-DD HH:mm:ss");
-
+    public Codigos(
+        String logId,
+        String fecha,
+        String destinatario,
+        String codigo,
+        String tipo,
+        String origen
+    ){
         try {
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-DD HH:mm:ss");
             this.fechaSolicitud = formatter.parse(fecha);
-            Log.e("fechaSolicitud >> ", fechaSolicitud.toString());
+            Log.i("Codigos", "fechaSolicitud: " + fechaSolicitud.toString());
         } catch (ParseException e) {
-            e.printStackTrace();
+            Log.e("Codigos", "Error: " + e.getMessage());
         }
 
         this.fecha = fecha;
@@ -59,14 +59,13 @@ public class Codigos implements Comparable<Codigos> {
 
     public Date getFechaSolicitud() {
 
-
-
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-DD HH:mm:ss");
         try {
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-DD HH:mm:ss");
             this.fechaSolicitud = formatter.parse(fecha);
         } catch (ParseException e) {
-            e.printStackTrace();
+            Log.e("Codigos", "Error: " + e.getMessage());
         }
+
         return fechaSolicitud;
     }
 

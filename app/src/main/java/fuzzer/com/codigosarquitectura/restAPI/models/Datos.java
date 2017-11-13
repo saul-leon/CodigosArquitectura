@@ -1,10 +1,7 @@
 package fuzzer.com.codigosarquitectura.restAPI.models;
 
-/**
- * Created by omar on 30/06/17.
- */
-
 public class Datos {
+
     private String pa_FchInicio;
     private String pa_FchFin;
     private String destinatario;
@@ -57,5 +54,16 @@ public class Datos {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    @Override
+    public String toString(){
+        return "{" +
+            "\"pa_FchInicio\":\""+ pa_FchInicio +"\"," +
+               "\"pa_FchFin\":\""+ pa_FchFin +"\"," +
+            "\"destinatario\":\""+ destinatario +"\"," +
+                      "\"to\":\""+ to +"\"," +
+                "\"telefono\":\""+ telefono +"\"" +
+        "}";
     }
 }
