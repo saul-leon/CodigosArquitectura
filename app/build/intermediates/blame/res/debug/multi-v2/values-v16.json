@@ -1,6 +1,21 @@
 {
     "logs": [
         {
+            "outputFile": "/home/saul/lab/CodigosArquitectura/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v16/values-v16.xml",
+            "map": [
+                {
+                    "source": "/home/saul/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/67ab0fac2fe576ba26e4799b37352e6b/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "/home/omar/Documentos/omar/CODIGOS_ULTIMO/CodigosArquitectura/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v16/values-v16.xml",
             "map": [
                 {

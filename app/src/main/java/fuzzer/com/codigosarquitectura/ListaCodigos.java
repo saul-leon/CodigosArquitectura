@@ -43,78 +43,77 @@ public class ListaCodigos extends AppCompatActivity {
         listaC.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Codigos codigo = (Codigos) parent.getItemAtPosition(position);
-
-                //TODO en vez de abrir el whats preguntar si se manda por whats o por mensaje de texto
-
-                //abrirWhats(codigo.getCodigo());
-                //dialog para preguntar(pendiente)
-                showAlertDialogButtonClicked(codigo);
-
+                elegirMedioDeEnvio(
+                    (Codigos) parent.getItemAtPosition(position)
+                );
             }
         });
 
         crearListaDesdeStringData(dataSMS, dataVOZ);
     }
 
-    public void showAlertDialogButtonClicked(Codigos codigos) {
-        final Codigos codigo =codigos;
-        // setup the alert builder
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Selecciona medio de envio");
+    public void elegirMedioDeEnvio(final Codigos codigo) {
 
-        // add a list
-        String[] opciones = {"WhatsApp", "SMS", "Cancelar"};
-        builder.setItems(opciones, new DialogInterface.OnClickListener() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Envialo por");
+        builder.setItems(new String[]{"WhatsApp", "SMS", "Cancelar"}, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 switch (which) {
                     case 0: //WhatsApp
                         abrirWhats(codigo.getCodigo());
-                    break;
-                    case 1: //SMS
-                        mandarSMS(crearPlantillaSMS(codigo.getCodigo(), codigo.getTipo()), codigo.getDestinatario());
                         break;
-                    case 2: //Cancelar
+                    case 1: //SMS
+                        mandarSMS(
+                            crearPlantillaSMS(
+                                codigo.getCodigo(),
+                                codigo.getTipo()
+                            ),
+                            codigo.getDestinatario().substring(3)
+                        );
                 }
             }
         });
 
-        // create and show the alert dialog
         AlertDialog dialog = builder.create();
         dialog.show();
     }
 
-
     private void mandarSMS(String texto, String destinatario) {
-        Intent smsIntent = new Intent(Intent.ACTION_VIEW);
-
-        smsIntent.setData(Uri.parse("smsto:"));
-
-        smsIntent.putExtra("address", new String(destinatario));
-        smsIntent.putExtra("sms_body", texto);
 
         try {
+            Intent smsIntent = new Intent(
+                Intent.ACTION_SENDTO,
+                Uri.parse("smsto:" + destinatario)
+            );
+            smsIntent.putExtra("sms_body", texto);
             startActivity(smsIntent);
-            finish();
-            Log.i("Finished sending SMS...", "");
+
+            Log.i("mandarSMS", "SMS sended");
         } catch (android.content.ActivityNotFoundException ex) {
-            Log.e("Error sms", ex.getMessage());
-            Toast.makeText(this,
-                    "SMS faild, please try again later.", Toast.LENGTH_SHORT).show();
+            Log.e("mandarSMS", "Error: " + ex.getMessage());
+
+            Toast.makeText(
+                this,
+                "No se pudo mandar el SMS :(",
+            Toast.LENGTH_SHORT).show();
         }
+
+        finish();
     }
 
     private String crearPlantillaSMS(String codigo, String tipoCodigo) {
+
         String salida = "";
+
         switch (tipoCodigo) {
             case "Primer acceso": //plantilla 4012
                 salida = "Utiliza esta clave de confirmacion para continuar con tu registro: " + codigo;
                 break;
             case "Verificación": //plantilla 4193
                 salida = "Bienvenido a banco azteca movil. Tu clave de Confirmacion es: " + codigo;
-                break;
         }
+
         return salida;
     }
 

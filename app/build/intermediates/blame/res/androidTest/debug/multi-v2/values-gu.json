@@ -1,6 +1,28 @@
 {
     "logs": [
         {
+            "outputFile": "/home/saul/lab/CodigosArquitectura/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-gu/values-gu.xml",
+            "map": [
+                {
+                    "source": "/home/saul/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.0.1.aar/53202b4e59b714a1c2667aa37b13a2ae/res/values-gu/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "285",
+                        "endColumns": "205",
+                        "endOffsets": "490"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "105",
+                        "endColumns": "205",
+                        "endOffsets": "306"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "/home/omar/Documentos/omar/CODIGOS_ULTIMO/CodigosArquitectura/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-gu/values-gu.xml",
             "map": [
                 {
