@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/omar/Documentos/omar/CODIGOS_ULTIMO/CodigosArquitectura/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-xlarge-v4/values-xlarge-v4.xml",
+            "map": [
+                {
+                    "source": "/home/omar/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/8930cbf0f9b0aeab2a5b414346619b94/res/values-xlarge-v4/values-xlarge-v4.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,126,197,267,337,405",
+                        "endColumns": "70,70,69,69,67,67",
+                        "endOffsets": "121,192,262,332,400,468"
+                    }
+                }
+            ]
+        }
+    ]
+}

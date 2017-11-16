@@ -1,8 +1,11 @@
 package fuzzer.com.codigosarquitectura;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -28,7 +31,7 @@ public class ListaCodigos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Log.i("ListaCodigos","Temino de hablar");
+        Log.i("ListaCodigos", "Temino de hablar");
 
         setContentView(R.layout.activity_lista_codigos);
 
@@ -40,24 +43,94 @@ public class ListaCodigos extends AppCompatActivity {
         listaC.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            Codigos codigo = (Codigos) parent.getItemAtPosition(position);
-            abrirWhats(codigo.getCodigo());
+                Codigos codigo = (Codigos) parent.getItemAtPosition(position);
+
+                //TODO en vez de abrir el whats preguntar si se manda por whats o por mensaje de texto
+
+                //abrirWhats(codigo.getCodigo());
+                //dialog para preguntar(pendiente)
+                showAlertDialogButtonClicked(codigo);
+
             }
         });
 
         crearListaDesdeStringData(dataSMS, dataVOZ);
     }
 
+    public void showAlertDialogButtonClicked(Codigos codigos) {
+        final Codigos codigo =codigos;
+        // setup the alert builder
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Selecciona medio de envio");
+
+        // add a list
+        String[] opciones = {"WhatsApp", "SMS", "Cancelar"};
+        builder.setItems(opciones, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which) {
+                    case 0: //WhatsApp
+                        abrirWhats(codigo.getCodigo());
+                    break;
+                    case 1: //SMS
+                        mandarSMS(crearPlantillaSMS(codigo.getCodigo(), codigo.getTipo()), codigo.getDestinatario());
+                        break;
+                    case 2: //Cancelar
+                }
+            }
+        });
+
+        // create and show the alert dialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+
+    private void mandarSMS(String texto, String destinatario) {
+        Intent smsIntent = new Intent(Intent.ACTION_VIEW);
+
+        smsIntent.setData(Uri.parse("smsto:"));
+
+        smsIntent.putExtra("address", new String(destinatario));
+        smsIntent.putExtra("sms_body", texto);
+
+        try {
+            startActivity(smsIntent);
+            finish();
+            Log.i("Finished sending SMS...", "");
+        } catch (android.content.ActivityNotFoundException ex) {
+            Log.e("Error sms", ex.getMessage());
+            Toast.makeText(this,
+                    "SMS faild, please try again later.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private String crearPlantillaSMS(String codigo, String tipoCodigo) {
+        String salida = "";
+        switch (tipoCodigo) {
+            case "Primer acceso": //plantilla 4012
+                salida = "Utiliza esta clave de confirmacion para continuar con tu registro: " + codigo;
+                break;
+            case "Verificación": //plantilla 4193
+                salida = "Bienvenido a banco azteca movil. Tu clave de Confirmacion es: " + codigo;
+                break;
+        }
+        return salida;
+    }
+
+
     private void crearListaDesdeStringData(String dataSMS, String dataVOZ) {
 
         ArrayList<Codigos> codigosSMS = new Gson().fromJson(
-            dataSMS,
-            new TypeToken<List<Codigos>>() { }.getType()
+                dataSMS,
+                new TypeToken<List<Codigos>>() {
+                }.getType()
         );
 
         ArrayList<Codigos> codigosVOZ = new Gson().fromJson(
-            dataVOZ,
-            new TypeToken<List<Codigos>>() { }.getType()
+                dataVOZ,
+                new TypeToken<List<Codigos>>() {
+                }.getType()
         );
 
         ArrayList<Codigos> codigos = new ArrayList<>();
@@ -72,14 +145,14 @@ public class ListaCodigos extends AppCompatActivity {
             codigos.add(codigosVOZ.get(i));
         }
 
-        if ( codigosSMS.isEmpty() ) {
+        if (codigosSMS.isEmpty()) {
 
             String mensaje = "No se encontrarón peticiones para este número, favor de validarlo";
 
             Toast.makeText(
-                this,
-                mensaje,
-                Toast.LENGTH_SHORT
+                    this,
+                    mensaje,
+                    Toast.LENGTH_SHORT
             ).show();
 
             abrirWhats(mensaje);
@@ -124,7 +197,7 @@ public class ListaCodigos extends AppCompatActivity {
 
         // Show
         listaC.setAdapter(
-            new CodigosAdapter(this, listaDeCodigos)
+                new CodigosAdapter(this, listaDeCodigos)
         );
 
         Log.i("mostrarDatos", "Mostrando lista");

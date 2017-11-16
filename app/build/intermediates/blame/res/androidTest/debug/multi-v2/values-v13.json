@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/omar/Documentos/omar/CODIGOS_ULTIMO/CodigosArquitectura/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-v13/values-v13.xml",
+            "map": [
+                {
+                    "source": "/home/omar/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/8930cbf0f9b0aeab2a5b414346619b94/res/values-v13/values-v13.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "58",
+                        "endOffsets": "109"
+                    }
+                }
+            ]
+        }
+    ]
+}
